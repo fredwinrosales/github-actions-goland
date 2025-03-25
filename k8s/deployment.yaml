@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goland-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goland-api
+  template:
+    metadata:
+      labels:
+        app: goland-api
+    spec:
+      containers:
+        - name: goland-api
+          image: fredwinrosales/goland-api:latest
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              ephemeral-storage: "100Mi"
+            limits:
+              ephemeral-storage: "200Mi"
+          imagePullPolicy: Always
