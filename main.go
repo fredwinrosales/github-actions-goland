@@ -6,7 +6,7 @@ import (
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-    response := map[string]string{"message": "Hello, world"}
+    response := map[string]string{"message": "Hello, world GO!"}
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(response)
 }
